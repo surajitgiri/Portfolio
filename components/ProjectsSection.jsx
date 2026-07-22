@@ -17,33 +17,22 @@ export default function ProjectsSection() {
         {projectsData.map((project) => (
           <article
             key={project.id}
-            className="rounded-2xl border border-gray-200 dark:border-[#334155] bg-gray-50 dark:bg-[#1E293B] overflow-hidden hover-lift flex flex-col justify-between"
+            className="group rounded-2xl border border-gray-200 dark:border-[#334155] bg-gray-50 dark:bg-[#1E293B] overflow-hidden hover-lift flex flex-col justify-between"
           >
             <div>
-              {/* Project UI Illustration Header */}
-              <div
-                className={`h-48 bg-gradient-to-br ${project.gradient} p-6 flex flex-col justify-between relative overflow-hidden`}
-              >
-                <div className="flex items-center justify-between text-xs text-slate-300 font-mono">
-                  <span className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-                  </span>
-                  <span>{project.version}</span>
-                </div>
-                <div className="text-white">
-                  <div className={`text-xs font-mono ${project.terminalColor} mb-1`}>
-                    {project.terminalText}
-                  </div>
-                  <div className="font-bold text-lg tracking-tight">{project.subtitle}</div>
-                </div>
+              {/* Project Image Header */}
+              <div className="h-48 sm:h-52 w-full overflow-hidden relative bg-gray-200 dark:bg-slate-800">
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
 
               {/* Project Details */}
               <div className="p-6">
                 <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{project.title}</h4>
-                <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                   {project.description}
                 </p>
 
