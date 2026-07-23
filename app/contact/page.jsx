@@ -2,7 +2,10 @@ import ContactSection from '@/components/ContactSection';
 
 export const metadata = {
   title: 'Contact Me | Surajit Giri',
-  description: 'Get in touch with Surajit Giri for junior full-stack developer roles and project collaborations.',
+  description: 'Contact Surajit Giri for internships, freelance projects and full-time opportunities.',
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 export default function ContactPage() {

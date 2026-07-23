@@ -1,15 +1,18 @@
 export const metadata = {
   title: 'About Me | Surajit Giri',
-  description: 'Learn more about Surajit Giri, a Junior Full Stack Developer with 2 years of practical experience building web applications.',
+  description: 'Learn more about Surajit Giri, Full Stack Developer, skills, education and experience.',
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 export default function AboutPage() {
   return (
     <main className="max-w-[1200px] mx-auto px-6 md:px-12 pt-28 pb-16 min-h-screen">
-      
+
       {/* SECTION: ABOUT ME */}
       <section id="about" className="py-12">
-        
+
         {/* Page Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 reveal">
           <h2 className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">About Me</h2>
