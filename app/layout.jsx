@@ -11,7 +11,11 @@ export const metadata = {
   },
   authors: [{ name: 'Surajit Giri' }],
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png', sizes: '32x32' },
+    ],
+    shortcut: '/favicon.ico',
     apple: '/apple-touch-icon.png',
   },
   verification: {
@@ -55,7 +59,7 @@ const personSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -75,7 +79,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="bg-white text-gray-900 dark:bg-[#0F172A] dark:text-[#F8FAFC] min-h-screen antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300">
+      <body className="bg-white text-gray-900 dark:bg-[#111827] dark:text-[#F9FAFB] min-h-screen antialiased selection:bg-[#22C55E] selection:text-white transition-colors duration-300">
         <Navbar />
         {children}
         <Footer />

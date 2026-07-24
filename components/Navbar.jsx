@@ -6,17 +6,26 @@ import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const pathname = usePathname();
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    const isCurrentlyDark = document.documentElement.classList.contains('dark');
-    setIsDark(isCurrentlyDark);
+    // Check initial theme state on mount
+    if (
+      localStorage.getItem('theme') === 'dark' ||
+      (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      setIsDark(true);
+      document.documentElement.classList.add('dark');
+    } else {
+      setIsDark(false);
+      document.documentElement.classList.remove('dark');
+    }
   }, []);
 
   const toggleTheme = () => {
-    const isCurrentlyDark = document.documentElement.classList.contains('dark');
-    if (isCurrentlyDark) {
+    if (isDark) {
       document.documentElement.classList.remove('dark');
       localStorage.setItem('theme', 'light');
       setIsDark(false);
@@ -34,35 +43,38 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 dark:bg-[#0F172A]/80 glass-nav border-b border-gray-200 dark:border-[#334155] py-4">
-      <div class="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between">
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 dark:bg-[#111827]/80 glass-nav border-b border-gray-200 dark:border-[#374151] py-4">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 flex items-center justify-between">
 
         {/* Brand Logo */}
-        <Link href="/" className="group flex items-center gap-2 font-extrabold text-xl tracking-tight text-gray-900 dark:text-white">
-          <img src="./apple-touch-icon.png" alt="logo" className="w-8 h-8" />
-          <span className="tracking-tight">Surajit<span className="text-blue-600 dark:text-blue-500">.dev</span></span>
+        <Link href="/" className="group flex items-center gap-2 font-extrabold text-2xl tracking-tight text-gray-900 dark:text-[#F9FAFB]">
+          <img src="./apple-touch-icon.png" alt="logo" className="w-10 h-10" />
+          <span className="tracking-tight">Surajit<span className="text-blue-600 dark:text-[#22C55E]">.dev</span></span>
         </Link>
 
         {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
+        <nav className="hidden md:flex items-center gap-8 text-base font-semibold text-gray-600 dark:text-gray-300">
           <Link
             href="/"
-            className={`nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${isActive('/') ? 'text-blue-600 dark:text-blue-400 font-bold' : ''
-              }`}
+            className={`nav-link hover:text-blue-600 dark:hover:text-[#22C55E] transition-colors ${
+              isActive('/') ? 'text-blue-600 dark:text-[#22C55E] font-extrabold' : ''
+            }`}
           >
             Home
           </Link>
           <Link
             href="/about"
-            className={`nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${isActive('/about') ? 'text-blue-600 dark:text-blue-400 font-bold' : ''
-              }`}
+            className={`nav-link hover:text-blue-600 dark:hover:text-[#22C55E] transition-colors ${
+              isActive('/about') ? 'text-blue-600 dark:text-[#22C55E] font-extrabold' : ''
+            }`}
           >
             About
           </Link>
           <Link
             href="/contact"
-            className={`nav-link hover:text-blue-600 dark:hover:text-blue-400 transition-colors ${isActive('/contact') ? 'text-blue-600 dark:text-blue-400 font-bold' : ''
-              }`}
+            className={`nav-link hover:text-blue-600 dark:hover:text-[#22C55E] transition-colors ${
+              isActive('/contact') ? 'text-blue-600 dark:text-[#22C55E] font-extrabold' : ''
+            }`}
           >
             Contact
           </Link>
@@ -74,7 +86,7 @@ export default function Navbar() {
             type="button"
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="theme-toggle-btn p-2.5 rounded-xl border border-gray-200 dark:border-[#334155] bg-gray-50 dark:bg-[#1E293B] text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-500/30 transition-all cursor-pointer"
+            className="theme-toggle-btn p-2.5 rounded-xl border border-gray-200 dark:border-[#374151] bg-gray-50 dark:bg-[#1F2937] text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-[#22C55E] hover:border-blue-500/30 transition-all cursor-pointer"
           >
             {isDark ? (
               <svg className="w-5 h-5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,7 +104,7 @@ export default function Navbar() {
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Open navigation menu"
-            className="md:hidden p-2.5 rounded-xl border border-gray-200 dark:border-[#334155] bg-gray-50 dark:bg-[#1E293B] text-gray-600 dark:text-gray-300 cursor-pointer"
+            className="md:hidden p-2.5 rounded-xl border border-gray-200 dark:border-[#374151] bg-gray-50 dark:bg-[#1F2937] text-gray-600 dark:text-gray-300 cursor-pointer"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -104,28 +116,31 @@ export default function Navbar() {
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-gray-200 dark:border-[#334155] bg-white dark:bg-[#0F172A] px-6 py-4 space-y-3">
+        <div className="md:hidden border-b border-gray-200 dark:border-[#374151] bg-white dark:bg-[#111827] px-6 py-4 space-y-3">
           <Link
             href="/"
             onClick={() => setMobileMenuOpen(false)}
-            className={`block text-base font-medium ${isActive('/') ? 'text-blue-600 font-bold' : 'text-gray-700 dark:text-gray-200'
-              }`}
+            className={`block text-lg font-semibold ${
+              isActive('/') ? 'text-blue-600 dark:text-[#22C55E] font-extrabold' : 'text-gray-700 dark:text-[#F9FAFB]'
+            }`}
           >
             Home
           </Link>
           <Link
             href="/about"
             onClick={() => setMobileMenuOpen(false)}
-            className={`block text-base font-medium ${isActive('/about') ? 'text-blue-600 font-bold' : 'text-gray-700 dark:text-gray-200'
-              }`}
+            className={`block text-lg font-semibold ${
+              isActive('/about') ? 'text-blue-600 dark:text-[#22C55E] font-extrabold' : 'text-gray-700 dark:text-[#F9FAFB]'
+            }`}
           >
             About
           </Link>
           <Link
             href="/contact"
             onClick={() => setMobileMenuOpen(false)}
-            className={`block text-base font-medium ${isActive('/contact') ? 'text-blue-600 font-bold' : 'text-gray-700 dark:text-gray-200'
-              }`}
+            className={`block text-lg font-semibold ${
+              isActive('/contact') ? 'text-blue-600 dark:text-[#22C55E] font-extrabold' : 'text-gray-700 dark:text-[#F9FAFB]'
+            }`}
           >
             Contact
           </Link>

@@ -3,8 +3,9 @@ export const projectsData = [
     id: 1,
     title: 'Finance Tracker Platform',
     imageUrl: './projectPhoto/ET.png',
-    description: `A web-based platform where users can track their monthly budget, expenses, and income. Features
-an analytics section with interactive Pie Charts, Bar Charts, and Line Charts for data visualization.`,
+    description: `A web-based platform where users can track their monthly budget, expenses, and income`,
+    //     eatures
+    // an analytics section with interactive Pie Charts, Bar Charts, and Line Charts for data visualization.
     tags: [
       { name: 'Node.js', color: 'bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20' },
       { name: 'Express.js', color: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20' },

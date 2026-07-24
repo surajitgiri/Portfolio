@@ -59,7 +59,7 @@ export default function ContactSection() {
       {/* Page Header */}
       <div className="text-center max-w-2xl mx-auto mb-12 reveal">
         <h2 className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-2">Get In Touch</h2>
-        <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">Contact Me</h3>
+        <h3 className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-[#F9FAFB] tracking-tight">Contact Me</h3>
         <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">Have a question or want to work together? Send me a message!</p>
       </div>
 
@@ -68,7 +68,7 @@ export default function ContactSection() {
         {/* Left Column: Contact Details */}
         <div className="md:col-span-5 space-y-6 reveal">
           <div>
-            <h4 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">Let's build something great together.</h4>
+            <h4 className="text-2xl font-bold text-gray-900 dark:text-[#F9FAFB] mb-3">Let's build something great together.</h4>
             <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
               I am currently seeking junior full-stack developer roles and open for exciting projects. Feel free to reach out via email or send a message on the form.
             </p>
@@ -85,7 +85,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <h5 className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase">Email</h5>
-                <a href="mailto:surajitgiri978@gmail.com" className="block text-sm font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors">surajitgiri978@gmail.com</a>
+                <a href="mailto:surajitgiri978@gmail.com" className="block text-sm font-bold text-gray-900 dark:text-[#F9FAFB] hover:text-blue-600 dark:hover:text-blue-400 transition-colors">surajitgiri978@gmail.com</a>
               </div>
             </div>
 
@@ -99,7 +99,7 @@ export default function ContactSection() {
               </div>
               <div>
                 <h5 className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase">Location</h5>
-                <p className="text-sm font-bold text-gray-900 dark:text-white">Kolkata, West Bengal, India</p>
+                <p className="text-sm font-bold text-gray-900 dark:text-[#F9FAFB]">Kolkata, West Bengal, India</p>
               </div>
             </div>
 
@@ -144,7 +144,7 @@ export default function ContactSection() {
 
         {/* Right Column: Contact Form */}
         <div className="md:col-span-7 reveal">
-          <form ref={formRef} onSubmit={handleSubmit} className="p-6 sm:p-8 rounded-2xl border border-gray-200 dark:border-[#334155] bg-gray-50 dark:bg-[#1E293B] space-y-5">
+          <form ref={formRef} onSubmit={handleSubmit} className="p-6 sm:p-8 rounded-2xl border border-gray-200 dark:border-[#374151] bg-gray-50 dark:bg-[#1F2937] space-y-5">
             
             {status.show && (
               <div className={`p-4 rounded-xl text-sm font-medium transition-all ${status.success ? 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20' : 'bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20'}`}>
@@ -162,7 +162,7 @@ export default function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, user_name: e.target.value })}
                 required
                 placeholder="John Doe"
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-[#334155] bg-white dark:bg-[#0F172A] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 text-sm transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-[#374151] bg-white dark:bg-[#111827] text-gray-900 dark:text-[#F9FAFB] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 text-sm transition-all"
               />
             </div>
 
@@ -176,7 +176,7 @@ export default function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, user_email: e.target.value })}
                 required
                 placeholder="john@example.com"
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-[#334155] bg-white dark:bg-[#0F172A] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 text-sm transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-[#374151] bg-white dark:bg-[#111827] text-gray-900 dark:text-[#F9FAFB] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 text-sm transition-all"
               />
             </div>
 
@@ -190,7 +190,7 @@ export default function ContactSection() {
                 onChange={(e) => setFormData({ ...formData, user_message: e.target.value })}
                 required
                 placeholder="Hi Surajit, I would like to discuss a project..."
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-[#334155] bg-white dark:bg-[#0F172A] text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 text-sm transition-all resize-none"
+                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-[#374151] bg-white dark:bg-[#111827] text-gray-900 dark:text-[#F9FAFB] placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500 text-sm transition-all resize-none"
               ></textarea>
             </div>
 
