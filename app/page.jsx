@@ -30,46 +30,72 @@ export default function Home() {
     <main className="max-w-[1200px] mx-auto px-6 md:px-12 pt-28 pb-16">
 
       {/* SECTION 1: HERO */}
-      <section id="hero" className="min-h-[85vh] flex flex-col justify-center items-center text-center pt-8 pb-16">
+      <section id="hero" className="flex flex-col justify-center items-center text-center pt-4 pb-6">
 
         {/* Profile Details Container */}
-        <div className="w-full max-w-3xl mx-auto text-left font-mono mb-10 reveal flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8">
+        <div className="w-full max-w-3xl mx-auto text-left font-mono mb-10 reveal flex flex-col sm:flex-row items-start sm:items-center gap-5 sm:gap-8">
 
-          {/* Profile Photo Container */}
-          <div className="relative group flex-shrink-0">
-            <div className="w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gray-200 dark:border-[#334155] bg-gray-100 dark:bg-slate-800 shadow-lg group-hover:scale-105 transition-all duration-300">
-              <img
-                src="/photo/pp.jpeg"
-                alt="Surajit Giri"
-                className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-              />
+          {/* Top Row on Mobile: Photo on left, Name & Role on right */}
+          <div className="flex items-center gap-4 sm:gap-0 w-full sm:w-auto flex-shrink-0">
+
+            {/* Profile Photo Container */}
+            <div className="relative group flex-shrink-0">
+              <div className="w-24 h-24 sm:w-44 sm:h-44 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-gray-200 dark:border-[#334155] bg-gray-100 dark:bg-slate-800 shadow-lg group-hover:scale-105 transition-all duration-300">
+                <img
+                  src="/photo/pp.jpeg"
+                  alt="Surajit Giri"
+                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
             </div>
-            <span className="absolute bottom-2 right-2 w-6 h-6 bg-emerald-500 border-4 border-white dark:border-[#0F172A] rounded-full shadow-md" title="Available for work"></span>
+
+            {/* Mobile Only: Name, Role & Available for Work Badge (Right side of photo) */}
+            <div className="flex sm:hidden flex-col justify-center flex-1">
+              <h1 className="text-2xl font-extrabold text-gray-900 dark:text-white tracking-tight font-mono mb-0.5">
+                Surajit Giri
+              </h1>
+              <p className="text-sm text-gray-500 dark:text-gray-400 font-mono mb-2">
+                Full Stack Developer
+              </p>
+              {/* Available for Work Badge */}
+              <div className="relative overflow-hidden inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 dark:border-emerald-500/40 text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 shadow-sm backdrop-blur-sm animate-glimpse w-fit">
+                <span className="relative flex h-2 w-2 flex-shrink-0">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span className="whitespace-nowrap font-mono">Available for work</span>
+              </div>
+            </div>
+
           </div>
 
-          {/* Name & Details Container */}
+          {/* Desktop Name & Details Container / Info Grid */}
           <div className="flex-1 w-full">
 
-            {/* Header Status Row */}
-            <div className="mb-4">
+            {/* Desktop Header Status Row */}
+            <div className="hidden sm:block mb-4">
               <div className="flex flex-wrap items-center gap-3 mb-1">
-                <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight font-mono">
+                <h1 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight font-mono">
                   Surajit Giri
                 </h1>
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800/80 border border-gray-200 dark:border-gray-700/70 text-xs text-gray-700 dark:text-gray-300 font-mono">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                {/* Desktop View Badge */}
+                <div className="inline-flex relative overflow-hidden items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 dark:bg-emerald-500/20 border border-emerald-500/30 dark:border-emerald-500/40 text-xs text-emerald-700 dark:text-emerald-300 font-mono animate-glimpse">
+                  <span className="relative flex h-2.5 w-2.5 flex-shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+                  </span>
                   <span>Available for work</span>
                 </div>
               </div>
-              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 font-mono">
+              <p className="text-xl text-gray-500 dark:text-gray-400 font-mono">
                 Full Stack Developer
               </p>
             </div>
 
             {/* 2-Column Info Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3.5 gap-x-8 md:gap-x-10 font-mono">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-3.5 gap-x-8 md:gap-x-10 font-mono mt-3 sm:mt-0">
 
-              {/* Column 1 */}
+              {/* Column 1: Location & Email */}
               <div className="space-y-3.5">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-xl bg-gray-100 dark:bg-[#161B22] border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-400 flex-shrink-0">
@@ -91,8 +117,8 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Column 2 */}
-              <div className="space-y-3.5">
+              {/* Column 2: Time & Pronouns (Hidden on mobile: hidden sm:block) */}
+              <div className="space-y-3.5 hidden sm:block">
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-xl bg-gray-100 dark:bg-[#161B22] border border-gray-200 dark:border-gray-800 flex items-center justify-center text-gray-700 dark:text-gray-400 flex-shrink-0">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -121,16 +147,25 @@ export default function Home() {
         </div>
 
         {/* Hero Title & Intro Paragraph */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white max-w-4xl leading-[1.15] mb-6 reveal">
-          Building fast, scalable web applications with <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400">clean code</span>.
-        </h1>
+        {/* <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight max-w-4xl leading-[1.15] mb-6 reveal cursor-default">
+          <span className="text-emerald-500 dark:text-emerald-400 hover:text-white transition-colors duration-300">Building </span>
+          <span className="text-lime-500 dark:text-lime-400 hover:text-white transition-colors duration-300">fast, </span>
+          <span className="text-teal-500 dark:text-teal-400 hover:text-white transition-colors duration-300">scalable </span>
+          <span className="text-violet-500 dark:text-violet-400 hover:text-white transition-colors duration-300">web applications </span>
+          <span className="text-slate-500 dark:text-slate-300 hover:text-white transition-colors duration-300">with </span>
+          <span className="text-indigo-500 dark:text-indigo-400 hover:text-white transition-colors duration-300">clean code.</span>
+        </h1> */}
 
         <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-2xl font-normal leading-relaxed mb-10 reveal">
-          Hi, I'm <strong className="text-gray-900 dark:text-white font-semibold">Surajit Giri</strong>. I have ~2 years of hands-on experience crafting responsive frontends and reliable REST APIs. Passionate about problem-solving, clean architecture, and modern JavaScript stacks.
+          Hi, I'm <strong className="text-gray-900 dark:text-white font-bold">Surajit Giri</strong>. I have <span className="font-semibold text-emerald-600 dark:text-emerald-400">~2 years of hands-on experience</span> building full-stack web applications using <span className="font-semibold text-blue-600 dark:text-blue-400">React</span>, <span className="font-semibold text-purple-600 dark:text-purple-400">Next.js</span>, <span className="font-semibold text-emerald-600 dark:text-emerald-400">Node.js</span>, and <span className="font-semibold text-amber-600 dark:text-amber-500">PostgreSQL/MongoDB</span>. Specializing in responsive frontends, scalable <span className="font-semibold text-teal-600 dark:text-teal-400">REST APIs</span>, and clean code architecture.
+          <Link href="/about" className="inline-flex items-center gap-1.5 font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 hover:underline transition-all ml-2 group whitespace-nowrap">
+            <span>Know more</span>
+            <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+          </Link>
         </p>
 
         {/* Action & Social Links Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-mono mb-16 reveal">
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 font-mono mb-6 reveal">
 
           {/* View Projects Button */}
           <a href="#projects" className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm transition-all shadow-md shadow-blue-500/20 hover:-translate-y-0.5 flex items-center gap-2">
@@ -208,11 +243,11 @@ export default function Home() {
 
       </section>
 
-      {/* SECTION 2: PROJECTS */}
-      <ProjectsSection />
-
-      {/* SECTION 3: INTERNSHIP / EXPERIENCE */}
+      {/* SECTION 2: INTERNSHIP / EXPERIENCE */}
       <ExperienceSection />
+
+      {/* SECTION 3: PROJECTS */}
+      <ProjectsSection />
 
       {/* SECTION 4: TECHNICAL SKILLS */}
       <SkillsSection />

@@ -11,7 +11,8 @@ export const metadata = {
   },
   authors: [{ name: 'Surajit Giri' }],
   icons: {
-    icon: '/icon.svg',
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
   },
   verification: {
     google: '-9tWwv8QdhulrE0mYrSOV6QavjKLjoKLowbr5bV4ISE',

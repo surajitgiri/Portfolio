@@ -20,11 +20,41 @@ export default function ExperienceSection() {
 
               {/* Timeline Content Card */}
               <div className="p-6 sm:p-8 rounded-2xl border border-gray-200 dark:border-[#334155] bg-gray-50 dark:bg-[#1E293B] shadow-sm hover-lift">
-                <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white">{exp.role}</h4>
-                    <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">{exp.company}</span>
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+
+                  {/* Left Side: Company Logo & Title/Company Info */}
+                  <div className="flex items-center gap-3.5">
+                    {/* Company Logo Container */}
+                    <div className="w-14 h-14 rounded-xl bg-blue-600/10 dark:bg-blue-500/20 border border-blue-500/30 flex items-center justify-center text-blue-600 dark:text-blue-400 flex-shrink-0 font-bold text-lg overflow-hidden shadow-sm">
+                      {exp.logo ? (
+                        <img
+                          src={exp.logo}
+                          alt={exp.company}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            // Fallback to icon if logo image fails or doesn't exist
+                            e.target.style.display = 'none';
+                            e.target.nextElementSibling.style.display = 'block';
+                          }}
+                        />
+                      ) : null}
+                      <svg
+                        className="w-6 h-6"
+                        style={{ display: exp.logo ? 'none' : 'block' }}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0h4m-4 0V11m0 0h4m-4 0H9m4 0V7m0 0h4m-4 0H9" />
+                      </svg>
+                    </div>
+
+                    <div>
+                      <h4 className="text-xl font-bold text-gray-900 dark:text-white">{exp.role}</h4>
+                      <span className="text-sm font-semibold text-blue-600 dark:text-blue-400">{exp.company}</span>
+                    </div>
                   </div>
+
                   <span className="px-3 py-1 rounded-full text-xs font-medium bg-gray-200 dark:bg-slate-700 text-gray-700 dark:text-gray-300">
                     {exp.duration}
                   </span>
