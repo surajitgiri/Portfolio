@@ -20,6 +20,9 @@ export const metadata = {
   },
   verification: {
     google: '-9tWwv8QdhulrE0mYrSOV6QavjKLjoKLowbr5bV4ISE',
+    other: {
+      "msvalidate.01": "8748879724593DECA1207279EA76E37F",
+    },
   },
   openGraph: {
     title: "Surajit Giri",
