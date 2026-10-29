@@ -4,7 +4,7 @@ export const experiencesData = [
     role: 'Software Engineer Intern',
     company: 'Venture Allocators',
     logo: '/company/VA.jpeg',
-    duration: 'May 2026 – Present',
+    duration: 'May 2026 – September 2026',
     responsibilities: [
       'Developed reusable and intuitive frontend components to enhance usability and overall user experience.',
       'Optimized performance across the entire project, improving load times and reducing redundant operations.',
