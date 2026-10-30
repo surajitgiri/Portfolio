@@ -167,7 +167,7 @@ export default function Home() {
 
           {/* Resume Pill Button */}
           <a
-            href="https://drive.google.com/file/d/1rLYL24InmuDzmQeFFPi_yJIzpYKmAczi/view?usp=sharing"
+            href="https://drive.google.com/file/d/1KroqvI2rVJbJkkPi4aCOlnL-gggvrj71/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="px-4 py-2.5 rounded-xl bg-gray-100 dark:bg-[#1F2937] hover:bg-gray-200 dark:hover:bg-slate-700 text-slate-900 dark:text-[#F9FAFB] font-semibold text-sm transition-all hover:-translate-y-0.5 flex items-center gap-2 border border-gray-300 dark:border-[#374151]"
