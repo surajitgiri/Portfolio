@@ -11,6 +11,7 @@ const darkMonochromeSkills = new Set([
   'express',
   'express.js',
   'vercel',
+  'railway',
   'github',
   'shadcn ui',
   'shadcn',
@@ -20,7 +21,8 @@ const darkMonochromeSkills = new Set([
 export default function TechBadge({ name, color = '', className = '' }) {
   const [imgError, setImgError] = useState(false);
   const iconUrl = getSkillIconUrl(name);
-  const isMonochrome = darkMonochromeSkills.has(name?.toLowerCase()?.trim());
+  const lowerName = name?.toLowerCase()?.trim() || '';
+  const isMonochrome = darkMonochromeSkills.has(lowerName);
 
   const badgeStyle = color || 'bg-slate-100/80 dark:bg-[#1F2937] text-gray-800 dark:text-[#F9FAFB] border border-gray-200/80 dark:border-[#374151]';
 
@@ -37,7 +39,11 @@ export default function TechBadge({ name, color = '', className = '' }) {
           }`}
           onError={() => setImgError(true)}
         />
-      ) : null}
+      ) : (
+        <span className="text-sm leading-none shrink-0">
+          {lowerName.includes('aws') || lowerName.includes('azure') || lowerName.includes('cloud') ? '☁️' : '⚡'}
+        </span>
+      )}
       <span className="leading-none">{name}</span>
     </span>
   );

@@ -5,11 +5,30 @@ export function getSkillIconUrl(name) {
   if (!name) return null;
   const lower = name.toLowerCase().trim();
 
+  // Direct CDN URLs for icons removed from Simple Icons (e.g., AWS, Azure, VS Code)
+  const customUrlMap = {
+    'aws': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+    'amazon web services': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+    'aws ec2': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+    'aws s3': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+    's3': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+    'vpc': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+    'cloud security': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+    'azure': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg',
+    'azure app service': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azure/azure-original.svg',
+    'vs code': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
+    'vscode': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg',
+    'css': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
+    'css3': 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg',
+  };
+
+  if (customUrlMap[lower]) {
+    return customUrlMap[lower];
+  }
+
   const slugMap = {
     'html': 'html5',
     'html5': 'html5',
-    'css': 'css3',
-    'css3': 'css3',
     'javascript': 'javascript',
     'javascript (es6+)': 'javascript',
     'js': 'javascript',
@@ -25,6 +44,7 @@ export function getSkillIconUrl(name) {
     'nodejs': 'nodedotjs',
     'express': 'express',
     'express.js': 'express',
+    'fastapi': 'fastapi',
     'tailwind css': 'tailwindcss',
     'tailwind': 'tailwindcss',
     'tailwindcss': 'tailwindcss',
@@ -39,16 +59,14 @@ export function getSkillIconUrl(name) {
     'websockets': 'socketdotio',
     'postgresql': 'postgresql',
     'postgres': 'postgresql',
+    'supabase': 'supabase',
     'mongodb': 'mongodb',
     'mongo': 'mongodb',
     'prisma': 'prisma',
     'redis': 'redis',
-    'aws': 'amazonwebservices',
-    'amazon web services': 'amazonwebservices',
-    'aws ec2': 'amazonec2',
-    's3': 'amazons3',
     'docker': 'docker',
     'vercel': 'vercel',
+    'railway': 'railway',
     'cloudflare': 'cloudflare',
     'git': 'git',
     'github': 'github',
@@ -61,9 +79,7 @@ export function getSkillIconUrl(name) {
     'sql optimization': 'postgresql',
     'indexes': 'postgresql',
     'relational schema': 'postgresql',
-    'vpc': 'amazonwebservices',
     'serverless': 'serverless',
-    'cloud security': 'amazonwebservices',
     'server components': 'nextdotjs',
     'turbopack': 'turbopack',
     'seo optimization': 'google',
@@ -71,8 +87,6 @@ export function getSkillIconUrl(name) {
     'c / c++': 'cplusplus',
     'c++': 'cplusplus',
     'c': 'c',
-    'vs code': 'visualstudiocode',
-    'vscode': 'visualstudiocode',
     'figma': 'figma',
     'linux': 'linux',
     'redux': 'redux',
